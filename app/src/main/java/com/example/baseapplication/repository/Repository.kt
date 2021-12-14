@@ -13,7 +13,7 @@ import javax.inject.Inject
 class Repository @Inject constructor(private val newsService: ApiService) {
 
 
-        fun fetchDogInfo(): Observable<NewsResponse> {
+        fun fetchNewsInfo(): Observable<NewsResponse> {
             return newsService.fetchNews()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
