@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private fun fetchData() {
         mainViewModel.fetchDogResponse()
         mainViewModel.response.observe(this) { response ->
-            Log.d("ISRAIL",response.message)
 
         }
     }

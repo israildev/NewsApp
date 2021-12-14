@@ -1,7 +1,7 @@
 package com.example.baseapplication.repository
 
-import com.example.baseapplication.repository.models.DogResponse
 import com.example.baseapplication.repository.api.ApiService
+import com.example.baseapplication.repository.models.NewsResponse
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -10,11 +10,11 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 @ActivityRetainedScoped
-class Repository @Inject constructor(private val dogService: ApiService) {
+class Repository @Inject constructor(private val newsService: ApiService) {
 
 
-        fun fetchDogInfo(): Observable<DogResponse> {
-            return dogService.getDog()
+        fun fetchDogInfo(): Observable<NewsResponse> {
+            return newsService.fetchNews()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         }
