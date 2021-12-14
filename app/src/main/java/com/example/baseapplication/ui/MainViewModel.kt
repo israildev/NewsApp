@@ -17,9 +17,9 @@ class MainViewModel @Inject constructor(private val repository: Repository) : Vi
         return@lazy CompositeDisposable()
     }
 
-    fun fetchNewsInfo() {
+    fun fetchNewsInfo(category: String = "apple") {
         disposable.add(
-            repository.fetchNewsInfo()
+            repository.fetchNewsInfo(category)
                 .subscribe({ _response.value = it },{Log.e("ISRAIL",it.localizedMessage)})
         )
     }

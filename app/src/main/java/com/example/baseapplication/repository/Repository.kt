@@ -12,9 +12,8 @@ import javax.inject.Inject
 @ActivityRetainedScoped
 class Repository @Inject constructor(private val newsService: ApiService) {
 
-
-        fun fetchNewsInfo(): Observable<NewsResponse> {
-            return newsService.fetchNews()
+        fun fetchNewsInfo(category: String): Observable<NewsResponse> {
+            return newsService.fetchNews(category)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         }
